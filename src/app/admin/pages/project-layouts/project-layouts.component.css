@@ -1,0 +1,40 @@
+/* @import "../../../../assets/css/style.css"; */
+
+
+.card-body {
+    padding: 5px !important;
+  }
+
+
+.card input{
+    width: 62px;
+    text-align: center;
+    height: 25px;
+}
+
+/* .card-item img{
+    width: 100px;
+    height: 150px;
+} */
+
+.label label{
+    background-color: #c9ccd1;
+    color: black;
+    border: 1px solid #7e7e7e;
+    width: 100px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.label2 label{
+    background-color: #6e0100;
+    width: 66px;
+    height: 37px;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 10px;
+    border: 2px solid #022237;
+    color: white;
+}

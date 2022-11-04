@@ -1,0 +1,78 @@
+<section>
+    <div class="page-header">
+          <h2><b>Projects Layouts</b></h2>
+    </div> 
+
+      <div class="row">
+        <!-- <div class="row"> -->
+    
+            <div *ngFor="let ele of liftLayoutList;" class="col-4">
+            <div class="card custom-card">
+                <div class="card-body ">
+                    <div class="card-item ">
+                        <div class="lift">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card" style="width: 320px; height: 422px; background-color: #eaebed; border-width: thick; border-color: #7e7e7e;">
+                                    <div class="label mx-auto">
+                                        <label><b>{{ele.lift_no}}</b></label>
+                                    </div>
+                                    
+                                    <div class="label2 pt-4">
+                                        <label>
+                                            <h1><b>{{ele.floor_no}}</b></h1>
+                                        </label>
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="col p-4">
+                                            
+                                            <div *ngIf="ele.lift_door_status == 'Open'" class="mat-card p-2" style="text-align: center; border-radius: 4px; border: 2px solid #ababab; background-color: #eaebed;">
+                                                <img style="width: 100px; height: 150px; text-align:center;" src="https://www.designingbuildings.co.uk/w/images/d/d7/Open_lift_doors_iStock_000017211376_Medium.jpg" alt="">
+                                            </div>
+
+                                            <div *ngIf="ele.lift_door_status == 'Close'"  class="mat-card p-2" style="text-align: center; border-radius: 4px; border: 2px solid #ababab; background-color: #eaebed;">
+                                                <img style="width: 100px; height: 150px; text-align:center;" src="../../../../assets/images/lift image.jpg" alt="">
+                                            </div>
+            
+                                        </div>
+            
+                                        <div class="col p-4">
+                                            <div class="mat-card p-2" style="text-align:center; border-radius: 4px; border: 2px solid #ababab; background-color: #eaebed">
+                                                <div class="card-item mx-auto">
+                                                    <h1 style="text-align:center;"><b>{{ele.moment_ststus}}</b></h1>
+                                                    <img *ngIf="ele.moment_ststus == 'UP'" style="width: 102px; height:102px;" src="../../../../assets/images/caret-arrow-up.png" alt="">
+                                                    <img *ngIf="ele.moment_ststus == 'DOWN'" style="width: 102px; height:102px;" src="https://www.pngkey.com/png/detail/16-166376_drop-down-arrow-dropdown-arrow-icon-png.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <mat-card class="mx-auto" style="background:linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(227,227,227,1) 100%) ; width: 278px;
+                                    height: 110px; border-radius: 7px; border: 2px solid #7e7e7e;">
+                                    <div class="mode-status ml-5">
+                                        <h2>AUTO</h2>
+                                    </div>
+                                    <div class="mat-card" style="height: 61px;width: 180px;margin-left: 8px; margin-top: -10px;border-radius: 4px;">
+                                    </div>
+                                    <div class="alaram-icon" style="margin-top: -36px; margin-left: 217px;">
+                                        <img src="../../../../assets/images/alarm.png" alt="">
+                                    </div>                    
+                                    </mat-card>
+                                    </div>
+                            </div>
+                        </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+            
+    
+    
+        <!-- </div> -->
+    </div>
+
+
+
+</section>
