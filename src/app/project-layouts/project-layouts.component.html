@@ -1,0 +1,298 @@
+<div class="jumps-prevent" style="padding-top: 74px;">
+</div>
+<!-- /app-Header -->
+<!--APP-SIDEBAR-->
+
+
+
+<div class="jumps-prevent"></div>
+<div class="main-content app-content mt-0">
+    <div class="side-app">
+        <!-- CONTAINER -->
+        <div class="main-container container-fluid">
+            <div class="page-header">
+                <div>
+                    <h2 class="main-content-title tx-24 mb-1">Add New Branch </h2>
+                    <h2 class="main-content-title tx-24 mb-1">Edit New Branch </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="">
+
+                <div class="col-lg-12" style="width:100% ;padding-left:  20%;">
+
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="card-item">
+
+                                <div class="col-12 col-sm-12" style="text-align:end ;">
+                                    <button class="but" (click)="map()">Map</button>
+                                </div>
+                              
+
+                                <div class="row row-sm">
+                                    <div class="col-lg-12">
+                                        <div class=" custom-card">
+                                            <div class="">
+                                                <div class="">
+                                                   
+
+                                                    <div class="col-12 col-sm-12" style="text-align:end ;">
+                                                      
+                                                        <button class="but" (click)="ngOnInit()">Refersh</button>
+                                                    </div>
+
+                                                    <div class="">
+                                                        <div class="row">
+
+                                                            <input type="text" style="width:15%;" [(ngModel)]="enterliftId" pInputText  placeholder="Enter liftId">
+                                                           
+                                                            <ng-container *ngFor="let item of liftLayoutList">
+                                                                <!-- {{floorDiraction  }}
+                                                                {{showLoop  }} -->
+                                                                
+
+                                                                <div class="col-md-4">
+                                                                    <div class="card"
+                                                                        style="padding: 10px; width: 279px; height: 522px; background-image: linear-gradient( #f4eeee, #716a6a ); border-width: thick; border-color: #203e9d;">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="mat-card"
+                                                                                    style="background-color: #203e9d; color: white; width:auto; border-radius: 4px; text-align: center;height: 54px;">
+                                                                                    <span class="pt-2"
+                                                                                        style="display: flex;justify-content: center;column-gap: 13px;">
+                                                                                        <h5>{{item.SLIFTID}}</h5>
+                                                                                        <div class="label pb-2">
+                                                                                            <label *ngIf="!showLoop" class="mb-4"><b>{{item.SFLRSTAT2}}</b></label>
+                                                                                            <label *ngIf="showLoop" class="mb-4"><b>{{floor_no}}</b></label>
+                                                                                           
+                                                                                        </div>
+                                                                                    </span>
+
+
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col pt-2">
+                                                                                <div class="mat-card"
+                                                                                    style="color:white; background-color: #203e9d; width: auto;  border-radius: 4px; text-align: center;">
+                                                                                    <h3>JOHNSON</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="lift-doors mt-2 mb-2">
+                                                                            <div class="mat-card p-1"
+                                                                                style="border-radius: 5px;border: 2px solid #01a552;background: transparent;box-shadow: none;">
+                                                                                <div class="row">
+                                                                                    <div class="col"
+                                                                                        *ngIf="item.SRUNSTAT2 == '0'">
+                                                                                        <img style="height:256px ;border-radius: 2px;"
+                                                                                            [src]="imagePath" alt="">
+                                                                                    </div>
+                                                                                    <div class="col"
+                                                                                        *ngIf="item.SRUNSTAT2 == '1'">
+                                                                                        <img style="height:256px ;border-radius: 2px;"
+                                                                                            [src]="imagePath" alt="">
+                                                                                    </div>
+                                                                                    <!-- <div class="col">
+                                                                                        <img style="height:164px ;border-radius: 2px;" src="../../../../assets/images/door-open.png" alt="">
+                                                                                    </div> -->
+                                                                                    <div class="col">
+
+                                                                                        <div class="mat-card p-1"
+                                                                                            style=" border: 2px solid #828486;text-align: center; border-radius: 7px;background-color: black;color: #01a552; width: 31px;height: 39px; margin-top: 61px;">
+                                                                                            <h3 *ngIf="!showLoop">{{item.SFLRSTAT2}}</h3>
+                                                                                            <h3 *ngIf="showLoop">{{floor_no}}</h3>
+
+                                                                                        </div>
+
+                                                                                        <div class="mat-card p-1"
+                                                                                            style="border: 2px solid #828486;border-radius: 7px;background-color: black;width: 31px;margin-top: 11px;">
+                                                                                            <img style="height:20px;"
+                                                                                                *ngIf="floorDiraction && showLoop ? floorDiraction : item.up"
+                                                                                                src="../../../../assets/images/up-arrow.png"
+                                                                                                alt=""><br>
+                                                                                            <img style="height:20px;"
+                                                                                                *ngIf="!floorDiraction && showLoop && !item.up"
+                                                                                                src="../../../../assets/images/down-arrow.png"
+                                                                                                alt="">
+
+
+                                                                                               
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <mat-card class="mx-auto"
+                                                                            style="background:linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(227,227,227,1) 100%) ; width: 251px;
+                                                            height: 110px; border-radius: 7px; border: 2px solid #7e7e7e;">
+
+                                                                            <div class="mode-status ml-5">
+                                                                                <h5>AUTO</h5>
+                                                                            </div>
+
+                                                                            <div class="mat-card"
+                                                                                style="height: 35px;width: 180px;margin-left: 8px; margin-top: -10px;border-radius: 4px;">
+
+                                                                            </div>
+
+                                                                            <div class="alaram-icon"
+                                                                                style="margin-top: -36px; margin-left: 201px;">
+                                                                                <img src="../../../../assets/images/alarm.png"
+                                                                                    alt="">
+                                                                            </div>
+
+
+
+                                                                        </mat-card>
+
+
+
+
+
+
+
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="padding-left: 15px;">
+                                                <div class="col-sm-12">
+                                                 
+                                                    <p-table #tt [value]="tableList" styleClass="ui-table-customers"  [paginator]="true" [rows]="50"
+                                                    [rowHover]="true" [rowsPerPageOptions]="[5,10,25,50]" [showCurrentPageReport]="true"
+                                                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" >
+                                                   
+                                                    <ng-template pTemplate="header">
+                                                        <tr class="thhead">
+                                                            <th style="width:25% ;" >
+                                                                id
+                                                            </th>
+
+                                                            <th  >
+                                                                liftId
+                                                            </th>
+
+                                                            <th>
+                                                                floor no 
+                                                            </th>
+                                                        
+                                                          
+                                                            <th> Door Status</th>
+                                                          
+                                                         
+                                            
+                                                         
+                                                            <th  >
+                                                                Lift Status
+                                                            </th>
+                                            
+                                            
+                                                           
+                                            
+                                                          
+                                            
+                                                            <th  >
+                                                               Value
+                                                            </th>
+                                                            
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-item  let-i="rowIndex">
+                                                    <!-- <ng-container *ngFor="let item of user_type_list ; let i = index;"> -->
+                                                      <tr class="tdrow">
+                                                           
+                                                        <td >
+                                                            {{item.id }}
+                                                        </td>
+                                                        <td >
+                                                            {{item.liftId }}
+                                                        </td>
+
+                                                            <td>
+                                                              {{item.floor_no}}
+                                                            </td>
+                                                         
+                                                            <td>
+                                                              {{item.lift_door_status}}
+                                                            </td>
+                                                        
+                                                         
+                                                          
+                                            
+                                                            <td >
+                                                                {{item.lift_status }}
+                                                            </td>
+                                                           
+                                                           
+                                            
+                                                            <td >
+                                                                {{item.processorOutputStatusValue }}
+                                                            </td>
+                                            
+                                                           
+                                                           
+                                                        </tr>
+                                                   
+                                                    </ng-template>
+                                                  </p-table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

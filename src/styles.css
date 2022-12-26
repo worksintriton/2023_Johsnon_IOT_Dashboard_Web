@@ -1,250 +1,169 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeicons/primeicons.css";
+/* body {
+    background-color: #f0f0f5;
+}  */
+/* @import url("../node_modules/primeicons/primeicons.css"); */
 @import  "primeng/resources/themes/nova-light/theme.css";
 @import  "primeng/resources/primeng.min.css";
-html,body {    height: 100%;}
-
-@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900";
-@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800";
-@import "https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800";
-@import "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap";
-html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}
-article,aside,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
-body {font-family: Roboto,sans-serif;margin: 0;background: #f4fbf4;}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-size:.875rem;font-weight:400;line-height:1.5;color:#8f9cc0;text-align:left;background-color:#f4fbf4}
-
-
-.btn-danger{
-    color: #fff;
-    height: 30px;
-    min-width: 80px;
-    font-size: 12px;
-    margin-right: 10px;
+@import 'primeicons/primeicons.css';
+:root {
+    --primary-bg-color: #6c5ffc;
+    --primary-bg-hover: #233ac5;
+    --primary-bg-border: #5161c1;
+    --dark-body: #292e4a;
+    --dark-border: #30314e;
+    --dark-primary: #6c5ffc;
+    --transparent-primary: #6c5ffc;
+    --transparent-body: #584cd9;
+    --transparent-theme: rgba(0, 0, 0, 0.2);
+    --transparent-border: rgba(255, 255, 255, 0.1);
+    --blue: #1a1a3c;
+    --dark-primary-hover: #233ac5;
+    --primary-transparentcolor: #eaedf7;
+    --darkprimary-transparentcolor: #2b356e;
+    --transparentprimary-transparentcolor: rgba(255, 255, 255, 0.05);
+    --indigo: #4b0082;
+    --purple: #6f42c1;
+    --pink: #fc5296;
+    --orange: #fd7e14;
+    --yellow: #FBB034;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #6c5ffc;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* You can add global styles to this file, and also import other style files */
-button,span{
-  color: white;
-}
-mat-icon{
- cursor:pointer !important
-}
-
-
-  .page-title{
-      font-size: 20px !important;
-      font-weight: bold;
-      text-transform: capitalize !important;
-      padding: 10px 0 !important;
-      }
-    
-    .page-sub-title-1{
-      font-size: 17px !important;
-      font-weight: bold;
-      text-align : left;
-    }
-      
-    .page-sub-title-2{
-      font-size: 16px;
-      font-weight: bold;
-      text-align : left;
-    }
-    
-    .mat-table-container {
-        display: block !important;
-        padding: 0px !important;
-        flex-direction: column !important;
-        min-width: 300px !important;
-        overflow: auto;
-    }
-    
-    .mat-table {
-    background:#f3f4f7 !important;
-    width: 100%;
-    overflow: auto;
-    }
-    .mat-sort-header-button, th.mat-header-cell, .mat-header-cell{
-    text-transform:uppercase!important;
-    font-size: 14px !important;
-    }
-    
-    td.mat-cell, th.mat-header-cell, .mat-cell, .mat-header-cell{
-    border-top: 1px solid lightgrey;
-    vertical-align: middle;
-    align-items: initial;
-    padding: 5px 6px !important;
-    }
-      
-    th.mat-header-cell, .mat-header-cell {
-    flex-direction: column;
-    justify-content: left;
-    background: #3f51b5;
-    font-weight: bolder;
-    }
-       
-    .mat-sort-header-arrow, th.mat-header-cell, .mat-header-cell {
-    color: white !important;
-    }
-      
-    .mat-cell,
-    .mat-header-cell {
-    word-wrap: initial;
-    display: table-cell;
-    padding: 0px 5px;
-    line-break: unset;
-    width: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    vertical-align: middle;
-    }
-      
-  
-  
-  
-  
-    .dialog-close-btn{
-      border-radius: 70%;
-      float: right;
-      border: 1.2px solid black;
-      font-size: 16px !important;
-      padding: 0px 12px;
-    }
-  
-    .dialog-close-btn:hover {
-      background-color: lavender !important;
-    }
-  
-    /* Default */
-  .btnnn-default-fn {
+* {
     box-sizing: border-box;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: 0;
-    border: 1px solid lightgray !important;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: transparent;
-    overflow: visible;
-    background-color: white;
-    color:#9e9a9a !important;
-  }
-  
-  .btnnn-default-fn, .btnnn-secondary-fn, .btnnn-prime-fn, .btnnn-warning-fn, .btnn, .btn-register-fn{
-    font-size: 15px !important;
-    display: inline-block;
-    white-space: nowrap;
-    text-decoration: none;
-    vertical-align: baseline;
-    text-align: center;
+}
+
+body {
     margin: 0;
-    min-width: 74px !important;
-    line-height: 36px !important;
-    padding: 0 16px;
-    border-radius: 4px;
-  }
-  
-  .btnnn-prime-fn {
-    box-sizing: border-box;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: 0;
-    border: none;
-    -webkit-tap-highlight-color: transparent;
-    overflow: visible;
-    background-color: #5369f8 !important;
-    color:white !important;
-  }
-  
-  .mat-dialog-container, .mat-dialog-content{
-    overflow-x: hidden !important;
-  }
-  
-  .mat-dialog-container
-  {
-    padding:0px !important;
-  }
-  
-  
-  .mat-dialog-title, .mat-card-title{
-    font-weight: bold;
-    font-size: 17px !important;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
     text-align: left;
-    text-transform: capitalize;
-  } 
-  
-  .mat-dialog-title{
-    padding: 10px;
-    margin: 0px !important;
-    background: lavender;
-  }
-  
-  .mat-dialog-actions{
-    margin: auto !important;
-    margin-right: 6px !important;
-  }
-  
-  .mat-dialog-actions > .btnnn-prime-fn {
-    margin-left: 12px !important;
-  }
-  
-  .pointer, button, .mat-form-field{
-    cursor: pointer;
-  }
-  
-  .mat-paginator-page-size-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix{
-    top: 0px !important;
-  }
-  
-  .mat-form-field {
-    width: 100%;
-  }
-  
-  .mat-row:hover,.mat-tree-node:hover, .active-row  {
-    background: white !important;
-  }
-  .mat-cell, .mat-footer-cell, .mat-row {
-    font-size: 12px !important;
-  }
-  
-  .mat-mini-fab:hover{
-    background-color: #5369f8 !important; 
-    }
-  
-     /* Scroll bar CSS */
-     ::-webkit-scrollbar {
-      width: 5px;
-      height: 8px !important;
-      /* background: #000; */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-      background: #7d7d75;
-      /* border-radius: 1ex;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75); */
-  }
-  
-  .outline {
-   border: 1px solid lightgray;
-   border-radius: 5px;
-  }
-  
+    background-color: #f0f0f5;
+}
 
-  
-  .mat-button-toggle-label-content{
-    padding: 8px !important;
-    line-height: 20px !important;
+html {
+    font-size: 16px;
+}
+
+body {
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    /* -webkit-font-feature-settings: "liga"0; */
+    /* font-feature-settings: "liga"0; */
+    height: 100%;
+    overflow-y: scroll;
+    position: relative;
+}
+
+body *::-webkit-scrollbar {
+    width: 2px;
+    height: 6px;
+    transition: 0.3s;
+}
+
+body *::-webkit-scrollbar-thumb {
+    background: #f6f6fb;
+}
+
+body *:hover::-webkit-scrollbar-thumb {
+    background: #f6f6fb;
+}
+::ng-deep .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #223f9a !important;
+    color: #fefefe;
+    cursor: default;
+}
+body .ui-table .ui-table-thead > tr > th {
+
+    border: 1px solid #e9edf4 !important;
+    text-align: center !important;
+  background-color: #ffffff !important;
+  text-transform:uppercase;
   }
-  
-  .mat-button-toggle-checked{
-    background-color: #43d39e !important;
-    color: white !important;
-  }
-  
-  .formFieldAdded > td{
-    background-color: #e0bfbf !important;
-  }
-  
+  body .ui-table .ui-table-tbody > tr > td {
+    background-color: inherit;
+    border: 1px solid #e9edf4 !important;
+    transition: box-shadow 0.2s;
+}
+body .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background-color: #ffffff !important;
+}
+body .ui-table .ui-table-caption {
+    background-color: #ffff !important;
+    color: #333333;
+    border: 0px solid #c8c8c8 !important;
+    padding: 0.571em 1em;
+    text-align: left !important;
+}
+body .ui-table .ui-table-caption, body .ui-table .ui-table-summary {
+      text-align: left !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

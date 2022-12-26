@@ -1,104 +1,200 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Inject,ViewChild,ElementRef  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { ApiService } from '../api.service';
-import { HttpClient } from '@angular/common/http';
-import Swal from 'sweetalert2';
-
+import { ActivatedRoute,Router } from '@angular/router';
+import { DashboardService } from 'src/app/provider/dashboard.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
- 
-  loginForm: FormGroup;
-  submitted = false;
-  returnUrl: string;
-  error = '';
-  loading = false;
-  ipAddress: any;
 
-  constructor(private formBuilder: FormBuilder,private http:HttpClient, private route: ActivatedRoute, private router: Router,
-              private authenticationService: ApiService) { 
-                this.getIPAddress();
-              }
+  @ViewChild("user") focusField: ElementRef;
+  email_id: string;
+  passwords: string;
+  phone_number: number;
+  data: any;
+  selectedAudio1: any;
+  Pic: any;
+  singn:boolean=false;
 
+  LoginForm: FormGroup;
+userLog:any;
+  loginDetails: any;
+  userData: any;
+  validation = false;
+  adminLog:any;
+  loginError = false;
+  loginErrorMsg: any;
+  eye:any;
+
+  email: any;
+  emailError = false;
+  emailErrorMsg: any;
+  checkbox:any;
+show:boolean;
+  password: any;
+  passwordError = false;
+  passwordErrorMsg: any;
+   isChecked :any =false;
+   public showPassword: boolean;
+rember: boolean
+  constructor(
+    private formBuilder: FormBuilder,
+    private router:Router,
+    private loginservice:DashboardService,
+    private toastr:ToastrManager
+    
+  ) {
+    this.LoginForm = this.formBuilder.group({
+      email_id: ['', Validators.required],
+      password: ['', Validators.required,]
+    })
+  }
+admin={email_id:"555555",password:"123456"}
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['admin@gmail.com', [Validators.required, Validators.email]],
-      password: ['admin', Validators.required],
-    });
+  this.singn=false;
+  this.checkbox=false;
+  this.isChecked=sessionStorage.getItem('rem');
+  var aa=sessionStorage.getItem('user');
+  sessionStorage.removeItem('first')
+ 
+  if(this.isChecked == "true"){
+    var aa=sessionStorage.getItem('user');
+    var parsedJson = JSON.parse(aa);  
+    this.LoginForm.patchValue({
+      "email_id":parsedJson.email_id,
+      "password":parsedJson.password
 
-    // reset login status
-    this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    // tslint:disable-next-line: no-string-literal
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin/manage-user';
+    })
+    this.checkbox=true;
+  
   }
 
-  getIPAddress()
-  {
-    this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
-      this.ipAddress = res.ip;
-    });
+  sessionStorage.removeItem('userData');
+  sessionStorage.removeItem('userlogin');
+  sessionStorage.removeItem('adminLog');
+  sessionStorage.setItem('loginStatus',JSON.stringify(this.singn));
+ 
+   
+   
+ 
+  
+    setTimeout(()=>{
+      this.focusField.nativeElement.focus();
+      },500)
+
+  }
+ 
+
+
+  
+  focusUser(){
+    this.emailError = false;
   }
 
-  ngAfterViewInit() {
-    document.body.classList.add('authentication-bg');
-    document.body.classList.add('authentication-bg-pattern');
+
+
+
+
+  remChange(data){
+  if(data.target.checked==false){
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('rem');
   }
+  
+    this.checkbox=data.target.checked;
 
-  // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
-
-  /**
-   * On submit form
-   */
-  onSubmit() { debugger
-    this.submitted = true;
-
-    if(!this.f.email.value){
-      Swal.fire({toast: true, position: 'top-end', showConfirmButton: false, timer: 3000, title: "Please enter email", icon: 'error', });
-    }
-
-    if(!this.f.password.value){
-      Swal.fire({toast: true, position: 'top-end', showConfirmButton: false, timer: 3000, title: "Please enter password", icon: 'error', });
-    }
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-
-
-    this.loading = true;
-    this.authenticationService.login(this.f.email.value, this.f.password.value,this.ipAddress)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log("data ",data);
-          if(data == null){
-            alert("Something problem");
-            return
-          }
-
-          if(data.userType == "ADMIN"){
-            this.router.navigate([this.returnUrl]);
-          }else{
-            this.router.navigate(['admin/project-layouts']);
-          }
-         
-          this.loading = false;
-        },
-        error => {
-          console.log("error ",error);
-          Swal.fire({toast: true, position: 'top-end', showConfirmButton: false, timer: 3000, title: "Username or password incorrect", icon: 'error', });
-          this.error = error;
-          this.loading = false;
-        });
   }
+  logintest1() {
+    // if(this.isChecked == false){
+    //   localStorage.removeItem('user');
+
+    // localStorage.removeItem('rem');
+    // }
+  
+if(this.LoginForm.valid){
+  sessionStorage.removeItem('user');
+  sessionStorage.removeItem('rem');
+ 
+  if((this.LoginForm.controls.email_id.value===this.admin.email_id )&& (this.LoginForm.controls.password.value==this.admin.password)){
+    this.router.navigateByUrl('/layout')
+    this.singn=true;
+    this.adminLog=true;
+    sessionStorage.setItem('loginStatus',JSON.stringify(this.singn));
+    sessionStorage.setItem('adminLog',JSON.stringify(this.adminLog));
+    console.log(this.LoginForm.value)
+ if( this.checkbox==true)
+ {
+  sessionStorage.setItem('user',JSON.stringify(this.LoginForm.value));
+  sessionStorage.setItem('rem',JSON.stringify(this.checkbox));
+ }
+     
+    
+  }
+  else if(this.LoginForm.valid){
+    this.loginservice.user_login(this.LoginForm.value).subscribe((data:any)=>{
+      console.log(data['Status'])
+      if(data['Status']=="Success"){
+        this.router.navigateByUrl('/layout')
+        this.singn=true;
+        this.userLog=true;
+       var log= data['Data']
+        sessionStorage.setItem('loginStatus',JSON.stringify(this.singn));
+        sessionStorage.setItem('userData',JSON.stringify(log));
+        sessionStorage.setItem('userlogin',JSON.stringify(this.userLog));
+        if( this.checkbox==true)
+        {
+         sessionStorage.setItem('user',JSON.stringify(this.LoginForm.value));
+         sessionStorage.setItem('rem',JSON.stringify(this.checkbox));
+        }
+
+      }
+      else{
+        this.showError('Invalid Account');
+      }
+    })
+
+  }
+ 
 }
+    
+   
+  }
+  onKeypressEvent(event: any){
+    if(event.target.value==''){
+    this.eye=false;
+    
+    }else{
+      this.eye=true;
+    
+    }
+      
+    
+     
+     }
+     onKeypress(event: any){
+      if(event.target.value==''){
+      this.eye=false;
+      
+      }else{
+        this.eye=true;
+        
+      }
+        
+      
+       
+       }
+  
+  toogle(){
+    this.show=!this.show;
+  }
+  showError(msg) {
+    this.toastr.warningToastr(msg);
+}
+  
+}
+
+
+
